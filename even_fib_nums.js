@@ -7,8 +7,21 @@
  */
 function _sumFibs( maxFibValue ) {
   var sum = 0;
+  var fibonacciNumArr = [0, 1];
 
-  // do your work here
+  while (fibonacciNumArr[1] < maxFibValue) {
+
+    // first element becomes highest number of last 2 Fib numbers
+    fibonacciNumArr[0] = fibonacciNumArr[0] + fibonacciNumArr[1];
+
+    // sort by ascending number order (highest number becomes second element)
+    fibonacciNumArr.sort( function(a, b) { return a > b; });
+
+    // add the last Fib numnber, if it is even.
+    if (fibonacciNumArr[1] % 2 === 0) {
+      sum += fibonacciNumArr[1];
+    }
+  }
 
   return sum;
 }
